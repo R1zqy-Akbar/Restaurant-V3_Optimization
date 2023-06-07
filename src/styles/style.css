@@ -1,0 +1,369 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+ 
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+ 
+ 
+/*
+  AppBar
+*/
+ 
+.app-bar {
+  padding: 8px 16px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+ 
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+
+#hamburgerButton {
+  width: 44px;
+  height: 44px;
+}
+ 
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+}
+ 
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+ 
+.app-bar .app-bar__brand h1 {
+  font-family: cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f12020;
+  min-height: 44px;
+  min-width: 44px;
+  margin-left: 15px;
+}
+ 
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: white;
+  overflow: hidden;
+}
+ 
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+ 
+.app-bar .app-bar__navigation ul li {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.app-bar .app-bar__navigation a {
+  display: inline-block;
+  font-size: 1.4rem;
+  min-height: 44px;
+  min-width: 44px;
+  margin-top: 15px;
+  margin-right: 50px;
+  padding: 8px;
+}
+
+.app-bar .app-bar__navigation a:hover {
+  color: #2A2F4F;
+}
+
+.app-bar .app-bar__navigation a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #2A2F4F;
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.app-bar .app-bar__navigation a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 9999;
+  background-color: #fff;
+  padding: 10px;
+  border: 2px solid #000;
+}
+
+/*
+  Hero Element
+*/
+.hero {
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  background-image: url("../public/images/heros/hero-image_4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+}
+
+.hero .content h1 {
+  font-size: 5em;
+  color: #fff;
+  text-align: center;
+}
+
+.hero .content p {
+  color: #fff;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.hero .content img {
+  width: 100%;
+}
+
+/*
+  Main Content
+*/
+ 
+main {
+  padding: 32px;
+  flex: 1;
+}
+ 
+.content {
+  margin: 0 auto;
+  min-height: 100%;
+}
+ 
+.content .content__heading {
+  font-weight: normal;
+  text-align: center;
+}
+ 
+ 
+/*
+  Movies
+*/
+ 
+.movies {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+ 
+ 
+/*
+  Movie Item
+*/
+ 
+.movie-item {
+  width: 100%;
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+ 
+.movie-item__header {
+  position: relative;
+}
+ 
+.movie-item .movie-item__header .movie-item__header__poster {
+  width: 100%;
+}
+ 
+.movie-item .movie-item__header .movie-item__header__rating {
+  position: absolute;
+  padding: 8px;
+  bottom: 20px;
+  left: 0;
+  display: inline-block;
+  background-color: black;
+  color: white;
+}
+ 
+.movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
+  margin-left: 10px;
+}
+ 
+.movie-item .movie-item__content {
+  padding: 16px;
+}
+ 
+.movie-item .movie-item__content h3 a{
+  color: #db0000;
+  font-size: 1.3rem;
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+  margin-bottom: 4px;
+  padding: 6px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+.movie-item .movie-item__content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+ 
+ 
+/*
+  Movie
+*/
+ 
+.movie {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 16px;
+}
+
+.resto-item__not__found {
+  text-align: center;
+}
+ 
+.movie .movie__poster {
+  width: 100%;
+  max-width: 1080px;
+}
+ 
+.movie .movie__info h4 {
+  margin: 8px 0;
+}
+
+.movie .movie__info {
+  display: flexbox;
+}
+ 
+/*
+  Customer Reviews
+*/
+ 
+.customer-reviews {
+  display: contents;
+  margin: 20px;
+}
+
+.details {
+  display: gird;
+  grid-template-columns: 1fr;
+  margin: 20px;
+}
+
+/*
+  Menu Drinks And Foods
+*/
+
+.menu-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.styled-span-drink {
+  font-size: 10px;
+  text-transform: uppercase;
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.styled-span-food {
+  border: 2px solid red;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.heading-menu{
+  padding: 10px;
+}
+
+/*
+Like
+*/
+
+.like {
+width: 55px;
+height: 55px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #db0000;
+
+position: fixed;
+bottom: 16px;
+right: 16px;
+border-radius: 50%;
+border: 0;
+
+font-size: 18px;
+color: white;
+cursor: pointer;
+}
+
+/*
+  Footer
+*/
+ 
+footer {
+  box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: #f12020;
+  width: 100%;
+}
+ 
